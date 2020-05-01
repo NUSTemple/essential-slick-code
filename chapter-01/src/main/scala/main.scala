@@ -1,5 +1,5 @@
 // Import the Slick interface for H2:
-import slick.jdbc.H2Profile.api._
+import slick.jdbc.MySQLProfile.api._
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
@@ -39,7 +39,8 @@ object Example extends App {
   val halSays = messages.filter(_.sender === "HAL")
 
   // Create an in-memory H2 database;
-  val db = Database.forConfig("chapter01")
+  val db = Database.forURL("jdbc:mysql://pengtan:Meimei8847@localhost:3306/chapter01", 
+                         driver="com.mysql.cj.jdbc.Driver")
 
   // Helper method for running a query in this example file:
   def exec[T](program: DBIO[T]): T = Await.result(db.run(program), 2 seconds)

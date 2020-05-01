@@ -17,12 +17,12 @@ scalacOptions ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick"           % "3.3.0",
-  "com.h2database"      % "h2"              % "1.4.197",
+      "mysql" % "mysql-connector-java" % "8.0.19",
   "ch.qos.logback"      % "logback-classic" % "1.2.3"
 )
 
 initialCommands in console := """
-  |import slick.jdbc.H2Profile.api._
+  |import slick.jdbc.MysqlProfile.api._
   |import Example._
   |import scala.concurrent.duration._
   |import scala.concurrent.Await
